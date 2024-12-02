@@ -2,8 +2,8 @@ package com.test.automation.web;
 
 public interface NotImplementedService {
     /**
-     * @param x
-     * @return square(x)
+     * @param k
+     * @return square(k)
      */
-    int square(int x);
+    int square(int k);
 }

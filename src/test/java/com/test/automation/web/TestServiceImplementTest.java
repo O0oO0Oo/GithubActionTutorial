@@ -15,7 +15,7 @@ class TestServiceImplementTest {
     NotImplementedService notImplementedService;
 
     @InjectMocks
-    TestServiceInterface testService;
+    TestServiceImplement testService;
 
     @Test
     @DisplayName("Test")
@@ -24,7 +24,7 @@ class TestServiceImplementTest {
         int y = 10;
 
         Mockito.when(notImplementedService.square(x)).thenReturn(25);
-        Mockito.when(notImplementedService.square(x)).thenReturn(100);
+        Mockito.when(notImplementedService.square(y)).thenReturn(100);
 
         int result = testService.job(5, 10);
 

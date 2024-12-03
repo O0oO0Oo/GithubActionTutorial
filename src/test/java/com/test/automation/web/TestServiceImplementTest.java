@@ -26,8 +26,21 @@ class TestServiceImplementTest {
         Mockito.when(notImplementedService.square(x)).thenReturn(25);
         Mockito.when(notImplementedService.square(y)).thenReturn(100);
 
-        int result = testService.job(5, 10);
+        int result = testService.job(x, y);
 
         Assertions.assertEquals(x * x + y * y, result, "result should be " + (x * x + y * y) + ".");
+    }
+
+    @Test
+    void failedTest() {
+        int x = 6;
+        int y = 10;
+
+        Mockito.when(notImplementedService.square(x)).thenReturn(0);
+        Mockito.when(notImplementedService.square(y)).thenReturn(0);
+
+        int result = testService.job(x, y);
+
+        Assertions.assertEquals(x * x + y * y, result, "result should be " + (x * x + y * y) + ". but " + result + ".");
     }
 }

@@ -1,35 +1,41 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+# define the trigger
 on:
+  # new push happens
   push:
     branches:
       - main
+  # new pr happens
   pull_request:
     branches:
       - main
+
 jobs:
+  # github action start
+  # name of job
   Explore-GitHub-Actions:
+    # needs: {name} this job execcuted after job {name}.
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
 
+      # Building and testing Java with Gradle 
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo "👍 java build & test"
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-    
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
@@ -44,3 +50,5 @@ jobs:
         with:
           name: Package
           path: build/libs
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."

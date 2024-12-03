@@ -33,7 +33,7 @@ class TestServiceImplementTest {
 
     @Test
     void failedTest() {
-        int x = 5;
+        int x = 6;
         int y = 10;
 
         Mockito.when(notImplementedService.square(x)).thenReturn(0);

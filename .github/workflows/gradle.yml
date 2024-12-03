@@ -52,4 +52,4 @@ jobs:
           name: Package
           path: build/libs
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+#      - run: echo "🍏 This job's status is ${{ job.status }}."
